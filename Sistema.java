@@ -1,15 +1,14 @@
 public class Sistema {
     public static void main(String[] args) {
-        String n = "Carlos";
-        double a = 8;
-        double b = 7;
-        double c = (a + b) / 2;
-        System.out.println("Aluno: " + n);
-        System.out.println("Media: " + c);
-        if (c >= 6) {
-            System.out.println("Aprovado");
-        } else {
-            System.out.println("Reprovado");
-        }
+        Aluno aluno = new Aluno("Carlos", 8, 7);
+        Avaliacao avaliacao = new Avaliacao(aluno);
+
+        exibirResultado(avaliacao);
+    }
+
+    private static void exibirResultado(Avaliacao avaliacao) {
+        System.out.println("Aluno: " + avaliacao.getAluno().getNome());
+        System.out.println("Média: " + avaliacao.calcularMedia());
+        System.out.println(avaliacao.foiAprovado() ? "Aprovado" : "Reprovado");
     }
 }
